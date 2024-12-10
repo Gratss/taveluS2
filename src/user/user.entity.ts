@@ -15,6 +15,9 @@ export class User {
   @Column()
   password: string;
 
+  @Column({ default: false })
+  isBlocked: boolean;
+
   @OneToMany(() => Trip, trip => trip.user)
   trips: Trip[];
 }

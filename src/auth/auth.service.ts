@@ -12,7 +12,7 @@ export class AuthService {
 
   async login(credentials: { username: string; password: string }) {
     const { username, password } = credentials;
-    // Логика аутентификации
+    
   }
 
   async validateUser(username: string, pass: string): Promise<any> {
@@ -24,6 +24,6 @@ export class AuthService {
   }
 
   async register(username: string, password: string, email: string) {
-    // Логика регистрации пользователя
+   
   }
 }

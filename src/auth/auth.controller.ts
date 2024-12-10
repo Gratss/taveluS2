@@ -17,7 +17,7 @@ export class AuthController {
     return await this.authService.register(username, password, email);
   }
 
-  // Логин и генерация токена
+  
   @Post('login')
   async login(@Body() body: { username: string; password: string }) {
     const { username, password } = body;
