@@ -6,18 +6,24 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ default: 'default_username' })
-  username: string;
-
   @Column()
-  email: string;
+  username: string;
 
   @Column()
   password: string;
 
-  @Column({ default: false })
-  isBlocked: boolean;
+  @Column({ unique: true })
+  email: string;
 
-  @OneToMany(() => Trip, trip => trip.user)
+  @Column({ default: false })
+  isEmailVerified: boolean; // Поле для проверки email
+
+  @Column({ nullable: true })
+  emailVerificationToken: string; // Токен для подтверждения email
+
+  @OneToMany(() => Trip, (trip) => trip.user)
   trips: Trip[];
+
+  @Column({ default: false })
+  isBlocked: boolean; // Поле для блокировки пользователя
 }
